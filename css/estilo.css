@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+
+body{
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+.sec{
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: crimson;
+}
+
+.sec .dot{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transform: translate(-50%,-50%);
+    cursor: default;
+    transition: box-shadow 0.5s;
+
+}
+
+.sec .dot:active{
+    box-shadow: 0 0 0 200vh #fff;
+}
+
+.sec .dot.ativo:active{
+    box-shadow: 0 0 0 200vh #000;
+
+}
+
+.sec .dot::before{
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 600;
+    content: "\f185";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    white-space: nowrap;
+    transform:  translate(-50%,-50%);
+    color: rgb(255, 255, 255);
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.sec .dot.ativo::before{
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 600;
+    content: "\f186";
+    color: rgb(0, 0, 0)
+}
+
+.sec h1{
+    position: absolute;
+    width: 100%;
+    height: calc(100% + 10px);
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    font-size: 20vw;
+    color: #fff;
+    background: #000;
+    user-select: none;
+    text-transform: uppercase;
+    text-align: center;
+    mix-blend-mode: multiply;
+    font-weight: 700;
+}
+
+.sec.ativo h1{
+    color: #000;
+    background: #fff;
+    mix-blend-mode: screen;
+}
+
+.sec h1 .sobrenome{
+    margin-top: -4%;
+    font-size: 6.5vw;
+}
+
+.sec video{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70%;
+    height: 70%;
+    min-height: 600px;
+    transform: translate(-50%,-50%);
+    object-fit: cover;
+    /* z-index: 1; */
+}
+
+/* MENU  ----------------------------------  */
+
+.toggle,
+.toggle_recolhe {
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    width: 80px;
+    height: 80px;
+    background: #000;
+    cursor: pointer;
+    z-index: 10;
+    transition: 0.5s ease-in-out;
+    font-size: 3em;
+    border-radius: 50%;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    transition: height 0.01s;
+    transition-delay: 1.5s;
+}
+
+.navigation.active {
+    height: 100vh;
+    transition: height 0.01s;
+    transition-delay: 0s;
+}
+
+.navigation span {
+    position: absolute;
+    top: -100%;
+    left: calc(25% * var(--i));
+    width: 25%;
+    height: 100%;
+    background: crimson;
+    transition: top 0.25s ease-in;
+    transition-delay: calc(0.25s * var(--i));
+}
+
+.navigation.active span {
+    top: 0;
+}
+
+.navigation ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2;
+    transform: translateX(-100px);
+    opacity: 0;
+    visibility: hidden;
+    transition-delay: 0s;
+}
+
+.navigation.active ul {
+    transform: translateX(0px);
+    opacity: 1;
+    visibility: visible;
+    transition: 0.5s;
+    transition-delay: 0.75s;
+}
+
+.navigation ul li {
+    list-style: none;
+}
+
+.navigation ul li a {
+    text-decoration: none;
+    font-size: 3em;
+    font-weight: 700;
+    color: #fff;
+    display: inline-block;
+    padding: 5px 20px;
+}
+
+.navigation ul li a:hover {
+    background: #fff;
+}
+
+.navigation ul li.hover1 a:hover {
+    color: crimson;
+}
+
+.navigation ul li.hover2 a:hover {
+    color: #00ced1;
+}
+
+
+/* Conteudo do Site */
+
+
+.container_home{
+    position: relative;
+    min-height: 100vh;
+}
+
+#Welcome video{
+    position: absolute;
+    right: 0px;
+    top: 0;
+    max-width: 40%;
+    height: 100%;
+    min-height: 600px;
+    object-fit: cover;
+   
+}
+
+#Welcome h1,
+#Welcome p{
+    max-width: 768px;
+}
+
+@media (max-width:992px){
+    #Welcome video{
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    max-width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    }
+}
+
